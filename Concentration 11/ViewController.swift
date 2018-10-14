@@ -18,10 +18,18 @@ class ViewController: UIViewController
         }
     }
     
-    var emojiChoices = ["🎃", "👻", "🙀", "😈", "🦇", "😱", "🍭", "🍬", "🍎"]
+    let emojiSet = ["🎃", "👻", "🙀", "😈", "🦇", "😱", "🍭", "🍬", "🍎"]
+    lazy var emojiChoices = emojiSet
 
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
+    
+    @IBAction func newGame(_ sender: UIButton) {
+        game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        flipCount = 0
+        emojiChoices = emojiSet
+        updateViewFromModel()
+    }
     
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
