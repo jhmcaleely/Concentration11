@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D91557DF21724B4B000AF865 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91557DE21724B4B000AF865 /* Concentration.swift */; };
 		D91557E121724F23000AF865 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91557E021724F23000AF865 /* Card.swift */; };
+		D934D1C12173A5A7003B8EEF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D934D1C02173A5A7003B8EEF /* Theme.swift */; };
 		D9968089216A74A300370811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9968088216A74A300370811 /* AppDelegate.swift */; };
 		D996808B216A74A300370811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996808A216A74A300370811 /* ViewController.swift */; };
 		D996808E216A74A300370811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D996808C216A74A300370811 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		D91557DE21724B4B000AF865 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		D91557E021724F23000AF865 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D934D1C02173A5A7003B8EEF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D9968085216A74A200370811 /* Concentration 11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concentration 11.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9968088216A74A300370811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D996808A216A74A300370811 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				D996808A216A74A300370811 /* ViewController.swift */,
+				D934D1C02173A5A7003B8EEF /* Theme.swift */,
 				D996808C216A74A300370811 /* Main.storyboard */,
 				D91557DE21724B4B000AF865 /* Concentration.swift */,
 				D91557E021724F23000AF865 /* Card.swift */,
@@ -151,6 +154,7 @@
 			files = (
 				D996808B216A74A300370811 /* ViewController.swift in Sources */,
 				D9968089216A74A300370811 /* AppDelegate.swift in Sources */,
+				D934D1C12173A5A7003B8EEF /* Theme.swift in Sources */,
 				D91557DF21724B4B000AF865 /* Concentration.swift in Sources */,
 				D91557E121724F23000AF865 /* Card.swift in Sources */,
 			);
