@@ -14,16 +14,28 @@ class Concentration
     var indexOfOneAndOnlyFaceUpCard: Int?
     var score = 0
     var flipCount = 0
+    var lastMoveTime = Date()
     
-    func chooseCard(at index: Int) {
+    func cardWasFlipped(at index: Int) -> Bool {
         if !cards[index].isFaceUp {
-            flipCount += 1
+            return true
         }
         else {
             // if the card is face up, it is a flip to keep it face up when two are face up
             if indexOfOneAndOnlyFaceUpCard == nil {
-                flipCount += 1
+                return true
             }
+        }
+        return false
+    }
+    
+    func chooseCard(at index: Int) {
+        var moveDurationMs: Int?
+        
+        if cardWasFlipped(at: index) {
+            flipCount += 1
+            moveDurationMs = Int(Date().timeIntervalSince(lastMoveTime) * 1000)
+            lastMoveTime = Date()
         }
         
         if !cards[index].isMatched {
@@ -31,14 +43,14 @@ class Concentration
                 if cards[matchIndex].identifier == cards[index].identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
-                    score += 2
+                    score += matchBonus(moveDurationMs ?? 0)
                 }
                 else {
                     if cards[matchIndex].isSeen {
-                        score -= 1
+                        score += seenPenalty(moveDurationMs ?? 0)
                     }
                     if cards[index].isSeen {
-                        score -= 1
+                        score += seenPenalty(moveDurationMs ?? 0)
                     }
                 }
                 cards[index].isSeen = true
@@ -56,6 +68,33 @@ class Concentration
             }
         }
         
+    }
+    
+    let timeBands = [500, 1000, 1500]
+    let matchScores = [8, 6, 4, 2]
+    let seenPenalties = [-1, -2, -3, -4]
+    
+    func scoreInterval(_ interval: Int, _ scores: [Int]) -> Int {
+        if interval < timeBands[0] {
+            return scores[0]
+        }
+        else if interval < timeBands[1] {
+            return scores[1]
+        }
+        else if interval < timeBands[2] {
+            return scores[2]
+        }
+        else {
+            return scores[3]
+        }
+    }
+    
+    func matchBonus(_ duration: Int) -> Int {
+        return scoreInterval(duration, matchScores)
+    }
+    
+    func seenPenalty(_ duration: Int) -> Int {
+        return scoreInterval(duration, seenPenalties)
     }
     
     init(numberOfPairsOfCards: Int) {
